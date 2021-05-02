@@ -12,12 +12,25 @@ jobs_even = job_list.find_all(class_="organic-job even")
 jobs = jobs_odd + jobs_even
 
 for job in jobs:
-    title = job.find(class_="title")
-    company = job.find(class_="employer lk-employer")
-    location = job.find(class_="location")
-    link = job.find("a", class_="lk-job-title")["href"]
+    title_elem = job.find(class_="title")
+    company_elem = job.find(class_="employer lk-employer")
+    location_elem = job.find(class_="location")
+    link_elem = job.find("a", class_="lk-job-title")["href"]
 
-    print(title.text.strip())
-    print(company.text.strip())
-    print(location.text.strip())
-    print("Apply Here: ", link, "\n")
+    title = title_elem.text.strip()
+    company = company_elem.text.strip()
+    location = location_elem.text.strip()
+
+    print("--------------------------------------")
+    print("Position:")
+    print(title)
+
+    print("\nCompany:")
+    print(company)
+
+    print("\nLocation:")
+    print(location)
+
+    print("\nApply Here:")
+    #print(link)
+    
