@@ -7,8 +7,10 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 results = soup.find(id="container")
 job_list = results.find(id="organic-jobs")
+
 jobs_odd = job_list.find_all(class_="organic-job odd")
 jobs_even = job_list.find_all(class_="organic-job even")
+
 jobs = jobs_odd + jobs_even
 
 for job in jobs:
