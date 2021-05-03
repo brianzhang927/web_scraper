@@ -15,11 +15,16 @@ for job in jobs:
     title_elem = job.find(class_="title")
     company_elem = job.find(class_="employer lk-employer")
     location_elem = job.find(class_="location")
-    link_elem = job.find("a", class_="lk-job-title")["href"]
+    # link_elem = job.find("a", class_="lk-job-title")["href"]
 
     title = title_elem.text.strip()
     company = company_elem.text.strip()
     location = location_elem.text.strip()
+
+    if "Work Remotely" in location:
+        location = location.replace("Work Remotely", "")
+        location = location.replace("-", " ")
+        location = location.strip()
 
     print("--------------------------------------")
     print("Position:")
@@ -31,6 +36,5 @@ for job in jobs:
     print("\nLocation:")
     print(location)
 
-    print("\nApply Here:")
-    #print(link)
-    
+    # print("\nApply Here:")
+    # print(link)
